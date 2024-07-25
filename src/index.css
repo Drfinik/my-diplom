@@ -1,13 +1,388 @@
-body {
-  margin: 0;
-  font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', 'Roboto', 'Oxygen',
-    'Ubuntu', 'Cantarell', 'Fira Sans', 'Droid Sans', 'Helvetica Neue',
-    sans-serif;
-  -webkit-font-smoothing: antialiased;
-  -moz-osx-font-smoothing: grayscale;
+@import url("https://fonts.googleapis.com/css2?family=Montserrat:wght@100..900&display=swap");
+
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
 }
 
-code {
-  font-family: source-code-pro, Menlo, Monaco, Consolas, 'Courier New',
-    monospace;
+body {
+    background: #fff;
+    color: #222;
+    font-family: "Montserrat", sans-serif;
+    font-weight: 300;
+}
+
+h2,
+h3 {
+    font-weight: 600;
+}
+
+h2 {
+    font-size: 32px;
+}
+
+h3 {
+    font-size: 25px;
+}
+
+
+.container {
+    max-width: 1280px;
+    margin: 0 auto;
+}
+
+header {
+    width: 100%;
+    height: 100vh;
+    background: url("./img/hurgada.jpg") no-repeat;
+    background-size: cover;
+    background-position: center;
+}
+
+header .logo {
+    padding: 50px;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    position: relative;
+}
+
+header .shop-cart-button {
+    cursor: pointer;
+    transition: color, transform 500ms ease;
+    color: #fff;
+}
+
+header .shop-cart-button:hover,
+header .shop-cart-button.active {
+    color: #ffe500;
+    transform: scale(1.5);
+}
+
+header .shop-cart {
+    position: absolute;
+    top: 120px;
+    right: 0;
+    width: 600px;
+    background: #fafafa;
+    -webkit-box-shadow: 4px 5px 15px -7px #606060;
+    box-shadow: 4px 5px 15px -7px #606060;
+    padding: 20px;
+    padding-bottom: 0;
+}
+
+header .shop-cart .empty h2 {
+    text-align: center;
+    margin-bottom: 20px;
+    font-size: 20px;
+}
+
+header .shop-cart .item {
+    width: 100%;
+    float: left;
+    margin-bottom: 20px;
+}
+
+header .shop-cart .item img {
+    width: 70px;
+    float: left;
+    margin-right: 20px;
+}
+
+header .shop-cart .item h3 {
+    font-size: 20px;
+    margin-bottom: 10px;
+}
+
+header .shop-cart .item b {
+    color: #797979;
+    font-weight: 600;
+    padding-top: 10px;
+}
+
+header .shop-cart .item .delete-icon {
+    color: #ca5252;
+    float: right;
+    position: relative;
+    top: -15px;
+    cursor: pointer;
+    transition: color, transform 500ms ease;
+}
+
+header .shop-cart .item .delete-icon:hover {
+    color: #d83030;
+    transform: scale(1.5);
+}
+
+header .shop-cart .summa {
+    float: left;
+    width: 100%;
+    font-weight: 600;
+    font-size: 20px;
+    margin-bottom: 20px;
+}
+
+header ul {
+    display: flex;
+    gap: 30px;
+}
+
+header ul li {
+    list-style-type: none;
+}
+
+header ul li a {
+    text-decoration: none;
+    color: #fff;
+    transition: color 500ms ease;
+}
+
+header ul li a:hover {
+    color: #ffe500;
+}
+
+.about {
+    margin-top: 50px;
+    margin-bottom: 50px;
+    padding: 0 20px;
+    
+}
+
+.about h2 {
+    margin-bottom: 30px;
+}
+
+.about h3 {
+    margin-top: 30px;
+    margin-bottom: 20px;
+}
+
+.about ul {
+    margin-left: 20px;
+    margin-bottom: 20px;
+}
+
+.categories {
+    padding: 0 20px;
+}
+
+.categories h2 {
+    margin-bottom: 30px;
+}
+
+.categories div {
+    display: inline-block;
+    max-width: max-content;
+    border: 1px solid #ffe500;
+    padding: 5px;
+    background: #ffe500;
+    border-radius: 5px;
+    color: #333;
+    margin-bottom: 25px;
+    margin-right: 20px;
+    font-weight: 600;
+    cursor: pointer;
+    transition: all 500ms ease;
+}
+
+.categories div:hover {
+    transform: scale(1.1);
+}
+
+.full-item {
+    position: fixed;
+    top: 0;
+    right: 0;
+    left: 0;
+    bottom: 0;
+    background: rgba(0, 0, 0, 0.8);
+    z-index: 9999;
+    overflow: auto;
+}
+
+.full-item div {   
+    position: relative;
+    width: 600px;
+    margin: 10% auto;
+    background: #47b2ff;
+    border-radius: 10px;
+    overflow: hidden;
+    padding-bottom: 20px;
+}
+
+main {
+    padding: 0 20px;
+    width: 100%;
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: space-between;
+}
+
+main .excursion {
+    position: relative;
+    width: 30%;
+    margin-bottom: 50px;
+    background: #47b2ff;
+    border-radius: 10px;
+    overflow: hidden;
+    padding-bottom: 20px;
+}
+
+main .excursion img,
+.full-item img {
+    width: 100%;
+    border-radius: 10px 10px 0 0;
+    transition: transform 500ms ease;
+    cursor: pointer;
+    
+}
+
+.full-item img {
+    padding: 30px;    
+}
+
+main .excursion img:hover,
+.full-item img:hover {
+    transform: scale(1.05);
+}
+
+main h4,
+.full-item h4,
+main h3,
+.full-item h3,
+main p,
+.full-item p,
+main b,
+.full-item b {
+    margin: 10px 20px;
+    color: #fff;
+}
+
+main h3,
+.full-item h3 {
+    height: 70px;
+}
+
+main p,
+.full-item p {
+    margin-bottom: 50px;
+}
+
+main b,
+.full-item b,
+main h4,
+.full-item h4 {
+    max-width: max-content;
+    border: 1px solid #ffe500;
+    padding: 5px;
+    background: #ffe500;
+    border-radius: 5px;
+    color: #333;
+}
+
+main b,
+.full-item b {
+    margin: 0;
+    position: absolute;
+    bottom: 20px;
+    left: 20px;
+}
+
+main h4,
+.full-item h4 {
+    position: absolute;
+    margin: 0;
+    top: 10px;
+    left: 10px;
+}
+
+main .add-to-cart,
+.full-item .add-to-cart {
+    position: absolute;
+    right: 20px;
+    bottom: 20px;
+    background: #ffe500;
+    width: 35px;
+    height: 35px;
+    text-align: center;
+    line-height: 35px;
+    border-radius: 50%;
+    cursor: pointer;
+    font-weight: 600;
+    transition: transform 500ms ease;
+}
+
+.full-item .add-to-cart {
+    bottom: -40px;
+}
+
+main .add-to-cart:hover,
+.full-item .add-to-cart:hover {
+    transform: scale(1.5) translateY(-5px);
+}
+
+.contacts {
+    display: flex;
+    align-items: center;
+    justify-content: space-around;
+    padding: 50px;
+    background: #47b2ff;
+    border-radius: 10px;
+    font-weight: 600;
+    color: #fff;
+}
+
+.contacts a {
+    color: #fff;
+    text-decoration: none;
+}
+
+.contacts b {
+    color: #ffe500;
+}
+
+footer {
+    padding: 30px 20px;
+    text-align: center;    
+}
+
+footer a {
+    text-decoration: none;
+    color: #222;
+    transition: color 500ms ease;
+}
+
+footer a:hover {
+    color: #ffe500;
+}
+
+@media (max-width: 850px) {
+    .contacts {
+        flex-direction: column;
+        gap: 30px;
+    }
+}
+
+
+@media (max-width: 730px) {
+    header .logo, .contacts {
+        flex-direction: column;
+        gap: 30px;
+    }
+    main {
+        justify-content: space-around;
+    }
+    main .excursion {
+        width: 47%;
+    }
+}
+
+@media (max-width: 420px) {
+    main {
+        justify-content: center;
+    }
+    main .excursion {
+        width: 96%;
+    }
 }
